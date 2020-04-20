@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="'width=device-width, initial-scale=1">
+    <link rel="stylesheet" th:href="@{/css/styles.css}" type="text/css">
+    <title>Buzz'd Home</title>
+</head>
+
+<body>
+<div class="topnav" id="myTopnav">
+    <a th:href="/home" >Home</a>
+    <a th:href="/clients">Clients</a>
+    <a th:href="/appointments">Appointments</a>
+    <a href="/inventory" class="active">Inventory</a>
+    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        <i class="fa fa-bars"></i>
+    </a>
+</div>
+
+<script>
+    function myFunction() {
+        var x = document.getElementById("myTopnav");
+        if (x.className === "topnav") {
+            x.className += " responsive";
+        } else {
+            x.className = "topnav";
+        }
+    }
+
+</script>
+</body>
+</html>
