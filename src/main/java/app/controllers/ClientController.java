@@ -17,7 +17,7 @@ public class ClientController {
     @GetMapping(value = "/clients")
     public String findAll(Model model) {
         List<ClientsEntity> clients = clientService.getAllClients();
-        model.addAttribute("journals", clients);
+        model.addAttribute("client", clients);
         return "client-page";
     }
     @RequestMapping(value = "/clients/CreateClient")
@@ -38,7 +38,7 @@ public class ClientController {
 
     @PostMapping("/clients/save/{id}")
     public String updateClient(@PathVariable int client_id,
-                            @ModelAttribute("journal") ClientsEntity client) {
+                            @ModelAttribute("client") ClientsEntity client) {
         clientService.updateClientById(client_id, client);
         return "redirect:/clients/";
     }
