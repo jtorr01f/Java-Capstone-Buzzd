@@ -1,5 +1,7 @@
 package app.entities;
+
 import javax.persistence.*;
+
 @Entity
 @Table(name = "Buzzd_Appointment")
 public class AppointmentsEntity {

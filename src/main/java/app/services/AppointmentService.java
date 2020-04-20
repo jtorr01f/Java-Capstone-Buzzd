@@ -1,12 +1,9 @@
 package app.services;
 
 import app.entities.AppointmentsEntity;
-import app.entities.ClientsEntity;
 import app.repos.AppointmentRepository;
-import app.repos.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;

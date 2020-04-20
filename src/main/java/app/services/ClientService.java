@@ -4,7 +4,6 @@ import app.entities.ClientsEntity;
 import app.repos.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -21,7 +20,7 @@ public class ClientService {
         return clients;
     }
 
-    public Optional<ClientsEntity> getEntryById(int id) {
+    public Optional<ClientsEntity> getClientById(int id) {
         return clientRepository.findById(id);
     }
 

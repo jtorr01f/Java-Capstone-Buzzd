@@ -1,4 +1,5 @@
 package app.entities;
+
 import javax.persistence.*;
 
 @Entity
