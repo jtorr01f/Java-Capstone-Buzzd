@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="'width=device-width, initial-scale=1">
     <link rel="stylesheet" th:href="@{/css/styles.css}" type="text/css">
+    <script src="https://kit.fontawesome.com/427a2c8f1c.js" crossorigin="anonymous"></script>
     <title>Buzz'd Home</title>
 </head>
 
@@ -19,6 +20,36 @@
     </a>
 </div>
 
+<div class="page-header">
+    <div class="header-main">
+        <h1>Welcome, </h1>
+    </div>
+    <div class="sub-header">
+        <h3>Here is a list of your appointments for the day</h3>
+    </div>
+</div>
+<div class="table-main">
+    <table>
+        <thead>
+        <tr>
+            <th>Client Name</th>
+            <th>Appointment Time</th>
+            <th>Service</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="tempappointment: ${appointment}">
+            <td><span th:text="${tempappointment.clientId}"></span></td>
+            <td><span th:text="${tempappointment.time}"></span></td>
+            <td><span th:text="${tempappointment.service}"></span></td>
+            <td><a class="play-button" href=""><i class="fas fa-play-circle"></i></a>
+                <a class="cancel-button" href=""><i class="fas fa-times"></i></a></td>
+
+        </tr>
+        </tbody>
+    </table>
+</div>
 <script>
     function myFunction() {
         var x = document.getElementById("myTopnav");
@@ -28,6 +59,8 @@
             x.className = "topnav";
         }
     }
+
+
 
 </script>
 </body>

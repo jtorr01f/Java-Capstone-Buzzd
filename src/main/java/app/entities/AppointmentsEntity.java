@@ -1,17 +1,25 @@
 package app.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name = "Buzzd_Appointments")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class,property = "client_id")
 public class AppointmentsEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "appointment_id")
     private int appointmentId;
 
-    @Column(name = "client_id")
-    private int clientId;
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "client_id", nullable = false)
+    @JsonBackReference
+   // @Column(name = "client_id")
+    public ClientsEntity clientId;
 
     @Column(name="appointment_date")
     private String date;
@@ -33,11 +41,11 @@ public class AppointmentsEntity {
         this.appointmentId = appointmentId;
     }
 
-    public int getClientId() {
+    public ClientsEntity getClientId() {
         return clientId;
     }
 
-    public void setClientId(int clientId) {
+    public void setClientId(ClientsEntity clientId) {
         this.clientId = clientId;
     }
 
@@ -75,7 +83,7 @@ public class AppointmentsEntity {
 
     public AppointmentsEntity(){}
 
-    public AppointmentsEntity(int appointmentId, int clientId, String date, String time, String service, boolean status) {
+    public AppointmentsEntity(int appointmentId, ClientsEntity client_id, String date, String time, String service, boolean status) {
         this.appointmentId = appointmentId;
         this.clientId = clientId;
         this.date = date;

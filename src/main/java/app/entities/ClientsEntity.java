@@ -1,9 +1,15 @@
 package app.entities;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "Buzzd_Clients")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class,property = "client_id")
 public class ClientsEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,6 +27,13 @@ public class ClientsEntity {
 
     @Column(name = "client_email")
     private String email;
+
+    @OneToMany(
+            mappedBy = "clientId",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
+    private List<AppointmentsEntity> appointment = new ArrayList<>();
 
     public int getId() {
         return clientId;
@@ -73,12 +86,7 @@ public class ClientsEntity {
 
     @Override
     public String toString() {
-        return "ClientsEntity{" +
-                "id=" + clientId +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", phone='" + phone + '\'' +
-                ", email='" + email + '\'' +
-                '}';
+        return  firstName + " " + lastName;
+
     }
 }
