@@ -4,16 +4,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="'width=device-width, initial-scale=1">
     <link rel="stylesheet" th:href="@{/css/styles.css}" type="text/css">
-    <title>Buzz'd Home</title>
+    <title>Buzz'd Inventory</title>
 </head>
 
 <body>
 <div class="topnav" id="myTopnav">
-    <a th:href="/home" >Home</a>
-    <a th:href="/clients">Clients</a>
-    <a th:href="/appointments">Appointments</a>
-    <a href="/inventory" class="active">Inventory</a>
-    <a th:href="/users">Users</a>
+    <a th:href="@{/home}" >Home</a>
+    <a th:href="@{/clients}">Clients</a>
+    <a th:href="@{/appointments}">Appointments</a>
+    <a th:href="@{/inventory}" class="active">Inventory</a>
+    <a th:href="@{/users}">Users</a>
     <a href="javascript:void(0);" class="icon" onclick="myFunction()">
         <i class="fa fa-bars"></i>
     </a>

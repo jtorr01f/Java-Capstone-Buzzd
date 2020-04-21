@@ -17,7 +17,7 @@ public class AppointmentController {
     public String findAll(Model model) {
         List<AppointmentsEntity> appointment = appointmentService.getAllAppointments();
         model.addAttribute("appointment", appointment);
-        return "appointment-page";
+        return "appointments-page";
     }
 
     @RequestMapping(value = "/appointments/CreateAppointment")
