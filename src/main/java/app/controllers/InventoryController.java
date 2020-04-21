@@ -35,7 +35,7 @@ public class InventoryController {
         inventoryService.deleteInventory(id);
     }
 
-    @PostMapping("/clients/save/{id}")
+    @PostMapping("/inventory/save/{id}")
     public String updateInvetory(@PathVariable int id,
                                @ModelAttribute("inventory") InventoryEntity inventory) {
         inventoryService.updateInventoryById(id, inventory);
