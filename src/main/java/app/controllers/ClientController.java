@@ -36,9 +36,9 @@ public class ClientController {
     }
 
     @PostMapping("/clients/save/{id}")
-    public String updateClient(@PathVariable int client_id,
+    public String updateClient(@PathVariable int id,
                             @ModelAttribute("client") ClientsEntity client) {
-        clientService.updateClientById(client_id, client);
+        clientService.updateClientById(id, client);
         return "redirect:/clients/";
     }
 

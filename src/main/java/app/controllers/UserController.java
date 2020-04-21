@@ -5,7 +5,6 @@ import app.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 public class UserController {
@@ -35,9 +34,9 @@ public class UserController {
     }
 
     @PostMapping("/users/save/{id}")
-    public String updateUser(@PathVariable int user_id,
+    public String updateUser(@PathVariable int id,
                                @ModelAttribute("users") UserEntity user) {
-        userService.updateUserById(user_id, user);
+        userService.updateUserById(id, user);
         return "redirect:/users/";
     }
 
