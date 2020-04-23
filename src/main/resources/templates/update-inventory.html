@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="'width=device-width, initial-scale=1">
+    <link rel="stylesheet" th:href="@{/css/styles.css}" type="text/css">
+    <script src="https://kit.fontawesome.com/427a2c8f1c.js" crossorigin="anonymous"></script>
+    <title>Buzz'd Inventory</title>
+</head>
+
+<body>
+<div class="topnav" id="myTopnav">
+    <a th:href="@{/home}">Home</a>
+    <a th:href="@{/clients}" >Clients</a>
+    <a th:href="@{/appointments}">Appointments</a>
+    <a th:href="@{/inventory}" class="active">Inventory</a>
+    <a th:href="@{/users}">Users</a>
+    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        <i class="fa fa-bars"></i>
+    </a>
+</div>
+<div class="page-header">
+    <div class="header-main">
+        <h1>  Item Form</h1>
+    </div>
+</div>
+<div class="page-form">
+    <form class="creation-form" th:action="@{/inventory/AddInventory/} + ${id}" th:object="${inventory}"
+          enctype="application/x-www-form-urlencoded" method="post">
+        <input class="form-text" type="text" th:field="*{manufacturer}" th:value="*{manufacturer} placeholder="Manufacturer">
+        <input class="form-text" type="text" th:field="*{productName}" th:value="*{productName} placeholder="Product Name">
+        <input class="form-text" type="text" th:field="*{upc}" th:value="*{ups} placeholder="Product UPC">
+        <input class="form-text" type="text" th:field="*{stock}" th:value="*{stock} placeholder="# In Stock" >
+        <div><input class="submit-button" type="submit"></div>
+    </form>
+</div>
+</body>
+</html>
