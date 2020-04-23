@@ -91,6 +91,11 @@ td{
     decoration: none;
     font-size: 20px;
 }
+.edit-button{
+    color: rgb(0, 153, 255);
+    decoration: none;
+    font-size: 20px;
+}
 .profile-button{
     color: rgb(0, 153, 255);
     decoration: none;
@@ -124,4 +129,35 @@ td{
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
+}
+
+form {border: 3px solid #f1f1f1;}
+
+#uname, #psw{
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+.container {
+  padding: 16px;
+}
+
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+  span.psw {
+     display: block;
+     float: none;
+  }
+  .cancelbtn {
+     width: 100%;
+  }
 }

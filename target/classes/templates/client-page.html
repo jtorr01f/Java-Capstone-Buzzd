@@ -10,11 +10,13 @@
 
 <body>
 <div class="topnav" id="myTopnav">
-    <a th:href="@{/home}" >Home</a>
+    <a th:href="@{/home}">Home</a>
     <a th:href="@{/clients}" class="active">Clients</a>
     <a th:href="@{/appointments}">Appointments</a>
     <a th:href="@{/inventory}">Inventory</a>
-    <a th:href="@{/users}">Users</a>
+    <!--
+        <a th:href="@{/users}">Users</a>
+    -->
     <a href="javascript:void(0);" class="icon" onclick="myFunction()">
         <i class="fa fa-bars"></i>
     </a>
@@ -45,6 +47,7 @@
             <td><span th:text="${tempclient.phone}"></span></td>
             <td><span th:text="${tempclient.email}"></span></td>
             <td><a href="" class="profile-button"><i class="far fa-id-card"></i></a>
+                <a th:href="@{/clients/UpdateClient/} + ${tempclient.id}" class="edit-button"><i class="fas fa-user-edit"></i></a>
                 <a th:href="@{/clients/delete/} + ${tempclient.id}" class="cancel-button"><i class="fas fa-times"></i></a></td>
 
         </tr>
@@ -60,6 +63,7 @@
             x.className = "topnav";
         }
     }
+
 
 </script>
 </body>

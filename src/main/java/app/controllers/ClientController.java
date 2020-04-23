@@ -28,6 +28,13 @@ public class ClientController {
         return "create-client";
     }
 
+    @RequestMapping(value = "/clients/UpdateClient/{id}")
+    public String updateClientPage(@PathVariable int id, Model model) {
+        ClientsEntity clients = clientService.getClientById(id).orElse(null);
+        model.addAttribute("client", clients);
+        return "update-client";
+    }
+
     @RequestMapping(value = "/clients/AddClient")
     public String addClient(@ModelAttribute("clients") ClientsEntity clients) {
         clientService.saveClient(clients);
@@ -40,7 +47,7 @@ public class ClientController {
         return "redirect:/clients/";
     }
 
-    @PostMapping("/clients/save/{id}")
+    @PostMapping("/clients/UpdateClient/update/{id}")
     public String updateClient(@PathVariable int id,
                                @ModelAttribute("client") ClientsEntity client) {
         clientService.updateClientById(id, client);

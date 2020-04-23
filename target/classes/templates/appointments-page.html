@@ -14,7 +14,9 @@
     <a th:href="@{/clients}">Clients</a>
     <a th:href="@{/appointments}" class="active">Appointments</a>
     <a th:href="@{/inventory}" >Inventory</a>
+<!--
     <a th:href="@{/users}">Users</a>
+-->
     <a href="javascript:void(0);" class="icon" onclick="myFunction()">
         <i class="fa fa-bars"></i>
     </a>
@@ -33,6 +35,7 @@
         <thead>
         <tr>
             <th>Client Name</th>
+            <th>Apointment Date</th>
             <th>Appointment Time</th>
             <th>Service</th>
             <th>Actions</th>
@@ -41,9 +44,11 @@
         <tbody>
         <tr th:each="tempappointment: ${appointment}">
             <td><span th:text="${tempappointment.clientId}"></span></td>
+            <td><span th:text="${tempappointment.date}"></span></td>
             <td><span th:text="${tempappointment.time}"></span></td>
             <td><span th:text="${tempappointment.service}"></span></td>
             <td><a class="play-button" ><i class="fas fa-play-circle"></i></a>
+                <a th:href="@{/appointments/UpdateAppointment/} + ${tempappointment.appointmentId}" class="edit-button"><i class="fas fa-edit"></i></a>
                 <a th:href="@{/appointments/delete/} + ${tempappointment.appointmentId}" class="cancel-button" ><i class="fas fa-times"></i></a></td>
 
         </tr>

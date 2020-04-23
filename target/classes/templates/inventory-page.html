@@ -14,7 +14,9 @@
     <a th:href="@{/clients}">Clients</a>
     <a th:href="@{/appointments}">Appointments</a>
     <a th:href="@{/inventory}" class="active">Inventory</a>
+<!--
     <a th:href="@{/users}">Users</a>
+-->
     <a href="javascript:void(0);" class="icon" onclick="myFunction()">
         <i class="fa fa-bars"></i>
     </a>
@@ -44,7 +46,8 @@
             <td><span th:text="${tempinventory.productName}"></span></td>
             <td><span th:text="${tempinventory.upc}"></span></td>
             <td><span th:text="${tempinventory.stock}"></span></td>
-            <td><a th:href="@{/inventory/delete/} + ${tempinventory.inventoryId}" class="cancel-button" ><i class="fas fa-times"></i></a></td>
+            <td><a th:href="@{/inventory/UpdateInventory/} + ${tempinventory.inventoryId}" class="edit-button"><i class="fas fa-edit"></i></a>
+                <a th:href="@{/inventory/delete/} + ${tempinventory.inventoryId}" class="cancel-button" ><i class="fas fa-times"></i></a></td>
 
         </tr>
         </tbody>

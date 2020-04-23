@@ -14,7 +14,6 @@ public class ClientService {
     public ClientRepository clientRepository;
 
     public List<ClientsEntity> getAllClients() {
-
         List<ClientsEntity> clients = new ArrayList<ClientsEntity>();
         clientRepository.findAll().forEach(clients::add);
         return clients;

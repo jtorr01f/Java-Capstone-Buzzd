@@ -91,6 +91,11 @@ td{
     decoration: none;
     font-size: 20px;
 }
+.edit-button{
+    color: rgb(0, 153, 255);
+    decoration: none;
+    font-size: 20px;
+}
 .profile-button{
     color: rgb(0, 153, 255);
     decoration: none;

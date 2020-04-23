@@ -1,3 +1,4 @@
+/*
 package app.controllers;
 
 import app.entities.UserEntity;
@@ -21,3 +22,4 @@ public class LoginController {
         return "login-page";
     }
 }
+*/

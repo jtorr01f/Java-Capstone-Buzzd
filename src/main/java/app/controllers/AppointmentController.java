@@ -1,11 +1,13 @@
 package app.controllers;
 
 import app.entities.AppointmentsEntity;
+import app.entities.ClientsEntity;
 import app.services.AppointmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 
 @Controller
@@ -27,6 +29,14 @@ public class AppointmentController {
         return "create-appointment";
     }
 
+    @RequestMapping(value = "/appointments/UpdateAppointment/{id}")
+    public String updateAppointmentPage(@PathVariable int id, Model model) {
+        AppointmentsEntity appointment = appointmentService.getAppointmentById(id).orElse(null);
+        model.addAttribute("appointment", appointment);
+        return "update-appointment";
+    }
+
+
     @RequestMapping(value = "/appointments/AddAppointment")
     public String addAppointment(@ModelAttribute("appointment") AppointmentsEntity appointments) {
         appointmentService.saveAppointment(appointments);
@@ -39,7 +49,7 @@ public class AppointmentController {
         return "redirect:/appointments/";
     }
 
-    @PostMapping("/appointments/save/{id}")
+    @PostMapping("/appointments/UpdateAppointment/update/{id}")
     public String updateAppointment(@PathVariable int id,
                                     @ModelAttribute("appointment") AppointmentsEntity appointment) {
         appointmentService.updateAppointmentById(id, appointment);
