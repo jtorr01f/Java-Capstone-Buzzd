@@ -1,3 +1,4 @@
+/*
 package app.services;
 
 import app.entities.UserEntity;
@@ -14,8 +15,10 @@ public class UserService {
     @Autowired
     public UserRepository userRepository;
 
-   /* @Autowired
-    private PasswordEncoder passwordEncoder;*/
+   */
+/* @Autowired
+    private PasswordEncoder passwordEncoder;*//*
+
 
     public List<UserEntity> getAllUsers() {
 
@@ -44,3 +47,4 @@ public class UserService {
         userRepository.save(user);
     }
 }
+*/

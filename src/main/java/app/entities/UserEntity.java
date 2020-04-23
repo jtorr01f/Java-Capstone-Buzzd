@@ -1,4 +1,4 @@
-package app.entities;
+/*package app.entities;
 
 import javax.persistence.*;
 
@@ -104,4 +104,4 @@ public class UserEntity {
                 ", email='" + email + '\'' +
                 '}';
     }
-}
+}*/

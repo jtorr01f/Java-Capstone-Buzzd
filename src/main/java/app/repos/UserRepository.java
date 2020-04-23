@@ -1,3 +1,4 @@
+/*
 package app.repos;
 
 import app.entities.UserEntity;
@@ -8,3 +9,4 @@ import java.util.Optional;
 public interface UserRepository extends CrudRepository<UserEntity, Integer> {
     Optional<UserEntity> findByUsername(String email);
 }
+*/
