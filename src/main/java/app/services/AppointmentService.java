@@ -24,9 +24,7 @@ public class AppointmentService {
         return appointmentRepository.findById(id);
     }
 
-    public void updateAppointmentById(int id, AppointmentsEntity appointment) {
-        appointmentRepository.save(appointment);
-    }
+    public void updateAppointmentById(int id, AppointmentsEntity appointment) { appointmentRepository.save(appointment);}
 
     public void deleteAppointment(int id) {
         appointmentRepository.deleteById(id);

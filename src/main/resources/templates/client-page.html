@@ -44,8 +44,8 @@
             <td><span th:text="${tempclient.lastName}"></span></td>
             <td><span th:text="${tempclient.phone}"></span></td>
             <td><span th:text="${tempclient.email}"></span></td>
-            <td><a class="profile-button" href=""><i class="far fa-id-card"></i></a>
-                <a class="cancel-button" href=""><i class="fas fa-times"></i></a></td>
+            <td><a href="" class="profile-button"><i class="far fa-id-card"></i></a>
+                <a th:href="@{/clients/delete/} + ${tempclient.id}" class="cancel-button"><i class="fas fa-times"></i></a></td>
 
         </tr>
         </tbody>

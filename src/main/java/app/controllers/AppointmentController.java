@@ -24,18 +24,19 @@ public class AppointmentController {
     public String createAppointment(Model model) {
         AppointmentsEntity appointment = new AppointmentsEntity();
         model.addAttribute("appointment", appointment);
-        return "new-appointment";
+        return "create-appointment";
     }
 
-    @RequestMapping(value = "/appointments/addAppointment")
+    @RequestMapping(value = "/appointments/AddAppointment")
     public String addAppointment(@ModelAttribute("appointment") AppointmentsEntity appointments) {
         appointmentService.saveAppointment(appointments);
         return "redirect:/appointments/";
     }
 
-    @RequestMapping(value = "/appointments/delete/{id}", method = RequestMethod.DELETE)
-    public void deleteAppointment(@PathVariable int id) {
+    @RequestMapping(value = "/appointments/delete/{id}")
+    public String deleteAppointment(@PathVariable int id) {
         appointmentService.deleteAppointment(id);
+        return "redirect:/appointments/";
     }
 
     @PostMapping("/appointments/save/{id}")

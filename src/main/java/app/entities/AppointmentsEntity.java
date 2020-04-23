@@ -18,7 +18,6 @@ public class AppointmentsEntity {
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "client_id", nullable = false)
     @JsonBackReference
-   // @Column(name = "client_id")
     public ClientsEntity clientId;
 
     @Column(name="appointment_date")

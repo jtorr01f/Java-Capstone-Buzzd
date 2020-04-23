@@ -23,16 +23,17 @@ public class InventoryController {
     public String createInventory(Model model) {
         InventoryEntity inventory = new InventoryEntity();
         model.addAttribute("inventory", inventory);
-        return "new-inventory";
+        return "create-inventory";
     }
-    @RequestMapping(value = "/inventory/addInventory")
+    @RequestMapping(value = "/inventory/AddInventory")
     public String addInventory(@ModelAttribute("inventory") InventoryEntity inventory) {
         inventoryService.saveInventory(inventory);
         return "redirect:/inventory/";
     }
-    @RequestMapping(value = "/inventory/delete/{id}", method = RequestMethod.DELETE)
-    public void deleteInventory(@PathVariable int id) {
+    @RequestMapping(value = "/inventory/delete/{id}")
+    public String deleteInventory(@PathVariable int id) {
         inventoryService.deleteInventory(id);
+        return "redirect:/inventory/";
     }
 
     @PostMapping("/inventory/save/{id}")

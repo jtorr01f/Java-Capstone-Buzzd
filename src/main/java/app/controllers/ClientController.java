@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 
 @Controller
@@ -19,25 +20,29 @@ public class ClientController {
         model.addAttribute("client", clients);
         return "client-page";
     }
+
     @RequestMapping(value = "/clients/CreateClient")
     public String createClient(Model model) {
         ClientsEntity clients = new ClientsEntity();
         model.addAttribute("client", clients);
-        return "new-client";
+        return "create-client";
     }
-    @RequestMapping(value = "/clients/addClient")
+
+    @RequestMapping(value = "/clients/AddClient")
     public String addClient(@ModelAttribute("clients") ClientsEntity clients) {
         clientService.saveClient(clients);
         return "redirect:/clients/";
     }
-    @RequestMapping(value = "/clients/delete/{id}", method = RequestMethod.DELETE)
-    public void deleteClient(@PathVariable int id) {
+
+    @RequestMapping(value = "/clients/delete/{id}")
+    public String deleteClient(@PathVariable int id) {
         clientService.deleteClient(id);
+        return "redirect:/clients/";
     }
 
     @PostMapping("/clients/save/{id}")
     public String updateClient(@PathVariable int id,
-                            @ModelAttribute("client") ClientsEntity client) {
+                               @ModelAttribute("client") ClientsEntity client) {
         clientService.updateClientById(id, client);
         return "redirect:/clients/";
     }

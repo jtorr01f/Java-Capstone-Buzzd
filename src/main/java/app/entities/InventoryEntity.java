@@ -26,8 +26,8 @@ public class InventoryEntity {
         return inventoryId;
     }
 
-    public void setInventoryId(int inventoryId) {
-        this.inventoryId = inventoryId;
+    public void setInventoryId(int id) {
+        this.inventoryId = id;
     }
 
     public String getManufacturer() {
@@ -65,8 +65,8 @@ public class InventoryEntity {
     public InventoryEntity() {
     }
 
-    public InventoryEntity(int inventoryId, String manufacturer, String productName, String upc, int stock) {
-        this.inventoryId = inventoryId;
+    public InventoryEntity(int id, String manufacturer, String productName, String upc, int stock) {
+        this.inventoryId = id;
         this.manufacturer = manufacturer;
         this.productName = productName;
         this.upc = upc;

@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="'width=device-width, initial-scale=1">
+    <script src="https://kit.fontawesome.com/427a2c8f1c.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" th:href="@{/css/styles.css}" type="text/css">
     <title>Buzz'd Appointments</title>
 </head>
@@ -18,7 +19,37 @@
         <i class="fa fa-bars"></i>
     </a>
 </div>
+<div class="page-header">
+    <div class="header-main">
+        <h1>Appointments</h1>
+    </div>
+</div>
+<div class="button-main">
+    <a class="add-button" th:href="@{/appointments/CreateAppointment}"><i class="far fa-calendar-check"></i></a>
+   <!-- <a class="archive-button" href=""><i class="fas fa-archive"></i></a>-->
+</div>
+<div class="table-main">
+    <table>
+        <thead>
+        <tr>
+            <th>Client Name</th>
+            <th>Appointment Time</th>
+            <th>Service</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="tempappointment: ${appointment}">
+            <td><span th:text="${tempappointment.clientId}"></span></td>
+            <td><span th:text="${tempappointment.time}"></span></td>
+            <td><span th:text="${tempappointment.service}"></span></td>
+            <td><a class="play-button" ><i class="fas fa-play-circle"></i></a>
+                <a th:href="@{/appointments/delete/} + ${tempappointment.appointmentId}" class="cancel-button" ><i class="fas fa-times"></i></a></td>
 
+        </tr>
+        </tbody>
+    </table>
+</div>
 <script>
     function myFunction() {
         var x = document.getElementById("myTopnav");

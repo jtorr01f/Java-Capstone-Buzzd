@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="'width=device-width, initial-scale=1">
     <link rel="stylesheet" th:href="@{/css/styles.css}" type="text/css">
+    <script src="https://kit.fontawesome.com/427a2c8f1c.js" crossorigin="anonymous"></script>
     <title>Buzz'd Inventory</title>
 </head>
 
@@ -18,7 +19,37 @@
         <i class="fa fa-bars"></i>
     </a>
 </div>
+<div class="page-header">
+    <div class="header-main">
+        <h1>Inventory</h1>
+    </div>
+</div>
+<div class="button-main">
+    <a class="add-button" th:href="@{/inventory/CreateInventory}"><i class="fas fa-boxes"></i></a>
+</div>
+<div class="table-main">
+    <table>
+        <thead>
+        <tr>
+            <th>Manufacturer</th>
+            <th>Product Name</th>
+            <th>UPC</th>
+            <th>In Stock</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="tempinventory: ${inventory}">
+            <td><span th:text="${tempinventory.manufacturer}"></span></td>
+            <td><span th:text="${tempinventory.productName}"></span></td>
+            <td><span th:text="${tempinventory.upc}"></span></td>
+            <td><span th:text="${tempinventory.stock}"></span></td>
+            <td><a th:href="@{/inventory/delete/} + ${tempinventory.inventoryId}" class="cancel-button" ><i class="fas fa-times"></i></a></td>
 
+        </tr>
+        </tbody>
+    </table>
+</div>
 <script>
     function myFunction() {
         var x = document.getElementById("myTopnav");
