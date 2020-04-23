@@ -45,4 +45,11 @@ public class UserController {
         userService.updateUserById(id, user);
         return "redirect:/users/";
     }
+
+    @GetMapping(value = "/login")
+    public String login(Model model) {
+        List<UserEntity> users = userService.getAllUsers();
+        model.addAttribute("user", users);
+        return "login-page";
+    }
 }
