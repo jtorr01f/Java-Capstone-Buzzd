@@ -48,10 +48,10 @@ public class InventoryController {
         return "redirect:/inventory/";
     }
 
-    @PostMapping("/inventory/UpdateInventory/update/{id}")
-    public String updateInvetory(@PathVariable int id,
+    @PostMapping("/inventory/UpdateInventory/update/{inventoryId}")
+    public String updateInventory(@PathVariable int inventoryId,
                                  @ModelAttribute("inventory") InventoryEntity inventory) {
-        inventoryService.updateInventoryById(id, inventory);
+        inventoryService.updateInventoryById(inventoryId, inventory);
         return "redirect:/inventory/";
     }
 

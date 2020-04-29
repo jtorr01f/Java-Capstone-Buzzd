@@ -48,6 +48,10 @@ public class AppointmentsEntity {
         this.clientId = clientId;
     }
 
+    public int getIdFromClient(){
+        return clientId.getId();
+    }
+
     public String getDate() {
         return date;
     }
@@ -82,7 +86,7 @@ public class AppointmentsEntity {
 
     public AppointmentsEntity(){}
 
-    public AppointmentsEntity(int appointmentId, ClientsEntity client_id, String date, String time, String service, boolean status) {
+    public AppointmentsEntity(int appointmentId, ClientsEntity clientId, String date, String time, String service, boolean status) {
         this.appointmentId = appointmentId;
         this.clientId = clientId;
         this.date = date;

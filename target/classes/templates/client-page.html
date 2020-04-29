@@ -33,6 +33,7 @@
     <table>
         <thead>
         <tr>
+            <th>Client ID</th>
             <th>First Name</th>
             <th>Last Name</th>
             <th>Phone</th>
@@ -42,11 +43,12 @@
         </thead>
         <tbody>
         <tr th:each="tempclient: ${client}">
+            <td><span th:text="${tempclient.id}"></span></td>
             <td><span th:text="${tempclient.firstName}"></span></td>
             <td><span th:text="${tempclient.lastName}"></span></td>
             <td><span th:text="${tempclient.phone}"></span></td>
             <td><span th:text="${tempclient.email}"></span></td>
-            <td><a href="" class="profile-button"><i class="far fa-id-card"></i></a>
+            <td><!--<a href="" class="profile-button"><i class="far fa-id-card"></i></a>-->
                 <a th:href="@{/clients/UpdateClient/} + ${tempclient.id}" class="edit-button"><i class="fas fa-user-edit"></i></a>
                 <a th:href="@{/clients/delete/} + ${tempclient.id}" class="cancel-button"><i class="fas fa-times"></i></a></td>
 

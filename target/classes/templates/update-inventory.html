@@ -11,23 +11,23 @@
 <body>
 <div class="topnav" id="myTopnav">
     <a th:href="@{/home}">Home</a>
-    <a th:href="@{/clients}" >Clients</a>
+    <a th:href="@{/clients}">Clients</a>
     <a th:href="@{/appointments}">Appointments</a>
     <a th:href="@{/inventory}" class="active">Inventory</a>
-<!--
-    <a th:href="@{/users}">Users</a>
--->
+    <!--
+        <a th:href="@{/users}">Users</a>
+    -->
     <a href="javascript:void(0);" class="icon" onclick="myFunction()">
         <i class="fa fa-bars"></i>
     </a>
 </div>
 <div class="page-header">
     <div class="header-main">
-        <h1>  Item Form</h1>
+        <h1> Item Form</h1>
     </div>
 </div>
 <div class="page-form">
-    <form class="creation-form" th:action="@{/inventory/UpdateInventory/update/} + ${id}" th:object="${inventory}"
+    <form class="creation-form" th:action="@{/inventory/UpdateInventory/update/} + ${inventory.inventoryId}" th:object="${inventory}"
           enctype="application/x-www-form-urlencoded" method="post">
         <input class="form-text" type="text" th:field="${inventory.manufacturer}" value="${inventory.manufacturer}"
                placeholder="Product Manufacturer">
@@ -35,7 +35,8 @@
                placeholder="Product Name">
         <input class="form-text" type="text" th:field="${inventory.upc}" value="${inventory.upc}"
                placeholder="Product UPC">
-        <input class="form-text" type="text" th:field="${inventory.stock}" value="${inventory.stock}" placeholder="Number in Stock">
+        <input class="form-text" type="text" th:field="${inventory.stock}" value="${inventory.stock}"
+               placeholder="Number in Stock">
         <div><input class="submit-button" type="submit"></div>
     </form>
 </div>

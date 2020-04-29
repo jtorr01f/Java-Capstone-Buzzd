@@ -14,9 +14,9 @@
     <a th:href="@{/clients}">Clients</a>
     <a th:href="@{/appointments}" class="active">Appointments</a>
     <a th:href="@{/inventory}">Inventory</a>
-<!--
-    <a th:href="@{/users}">Users</a>
--->
+    <!--
+        <a th:href="@{/users}">Users</a>
+    -->
     <a href="javascript:void(0);" class="icon" onclick="myFunction()">
         <i class="fa fa-bars"></i>
     </a>
@@ -27,12 +27,16 @@
     </div>
 </div>
 <div class="page-form">
-    <form class="creation-form" th:action="@{/appointments/UpdateAppointment/} + ${id}" th:object="${appointment}"
+    <form class="creation-form" th:action="@{/appointments/UpdateAppointment/update/} + ${id}" th:object="${appointment}"
           enctype="application/x-www-form-urlencoded" method="post">
-        <input class="form-text" type="number" th:field="${appointment.clientId}" th:value="${appointment.clientId}" placeholder="Client ID">
-        <input class="form-text" type="text" th:field="${appointment.service}" th:value="${appointment.service}" placeholder="Service">
-        <input class="form-text" type="text" th:field="${appointment.date}" th:value="${appointment.date}" placeholder="Date">
-        <input class="form-text" type="text" th:field="${appointment.time}" th:value="${appointment.time}" placeholder="Time">
+        <p>Appointment for -</p><p th:text="*{client.clientId}"></p>
+        <input type="hidden"  th:field="*{clientId}" th:value="${client.clientId}">
+        <input class="form-text" type="text" th:field="*{service}" th:value="*{service}"
+               placeholder="Service">
+        <input class="form-text" type="text" th:field="*{date}" th:value="*{date}"
+               placeholder="Date">
+        <input class="form-text" type="text" th:field="*{time}" th:value="*{time}"
+               placeholder="Time">
         <div><input class="submit-button" type="submit"></div>
     </form>
 </div>
